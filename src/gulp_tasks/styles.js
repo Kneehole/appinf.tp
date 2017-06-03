@@ -4,12 +4,17 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const concatCss = require('gulp-concat-css');
 
 const conf = require('../conf/gulp.conf');
 
-gulp.task('styles', styles);
+gulp.task('vendor', function () {
+  return gulp.src(conf.path.src('**/*.css'))
+    .pipe(concatCss('vendor.css'))
+    .pipe(gulp.dest(conf.path.tmp()));
+});
 
-function styles() {
+gulp.task('custom', function () {
   return gulp.src(conf.path.src('index.scss'))
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'expanded'})).on('error', conf.errorHandler('Sass'))
@@ -17,4 +22,7 @@ function styles() {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(conf.path.tmp()))
     .pipe(browserSync.stream());
-}
+});
+
+gulp.task('styles', gulp.series('vendor', 'custom'));
+
