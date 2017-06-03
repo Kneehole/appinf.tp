@@ -35,6 +35,7 @@ RootRule.prototype.getRule = function () {
  * @return: Array<Rule>
  */
 RootRule.prototype.getChildren = function () {
-  return [this.rule];
+
+  return this.rule ? [this.rule] : [];
 };
 

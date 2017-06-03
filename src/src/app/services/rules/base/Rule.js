@@ -34,7 +34,7 @@ Rule.prototype.getParent = function () {
  * @return: Array<Rule>
  */
 Rule.prototype.getChildren = function () {
-  throw new Error('method not implemented');
+  return [];
 };
 
 /**

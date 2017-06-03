@@ -14,17 +14,40 @@ angular
   function RulesTreeController ($scope, $timeout, $compile) {
     var vm = this;
 
-    this.$onChanges = function (changesObj) {
+    vm.treantTree = null;
+
+    vm.$onChanges = function (changesObj) {
       if (changesObj.rootRule) {
-        vm.updateTree(changesObj.rootRule.currentValue);
+        $timeout(function () {
+          vm.updateTree(changesObj.rootRule.currentValue);
+        })
+        
       }
     };
 
     vm.updateTree = function (rootRule) {
-      var my_chart = new Treant(vm.generateTree());
+      var treantTreeData = vm.generateTreantTreeData(rootRule);
+      vm.cleanContainer();        
+      vm.treantTree = new Treant(treantTreeData);
     }
 
-    vm.generateTree = function () {
+    vm.cleanContainer = function () {
+      var containerId = "rules-tree-container";
+      $("#"+containerId).empty();
+      var container = document.getElementById(containerId);
+      container.innerHTML +='<div id="rules-tree" style="width:100%; height: 100%"></div>';
+    }
+
+/**
+ * Treant data management
+ */
+    vm.generateTreantTreeData = function (rootRule) {
+      var config = vm.getTreantTreeConfig();
+      var nodes = vm.generateTreantTreeNodes(rootRule);
+      return [config].concat(nodes);
+    }
+
+    vm.getTreantTreeConfig = function () {
       var config = {
         container: "#rules-tree",
 
@@ -39,72 +62,52 @@ angular
         },
         callback: {
           onTreeLoaded: function () {
-            vm.updateNodes();
+            vm.updateNodesWithComponents(vm.rootRule);
           }
         }
-      },
-      ceo = {
-        innerHTML: vm.generateNodeHTML(1)
-      },
+      }
+      return config;
+    }
 
-      cto = {
-        parent: ceo,
-        innerHTML: vm.generateNodeHTML(2)
-      },
-      cbo = {
-        parent: ceo,
-        innerHTML: vm.generateNodeHTML(3)
-      },
-      cdo = {
-        parent: ceo,
-        innerHTML: vm.generateNodeHTML(4)
-      },
-      cio = {
-        parent: cto,
-        innerHTML: vm.generateNodeHTML(5)
-      },
-      ciso = {
-        parent: cto,
-        innerHTML: vm.generateNodeHTML(6)
-      },
-      cio2 = {
-        parent: cdo,
-        innerHTML: vm.generateNodeHTML(7)
-      },
-      ciso2 = {
-        parent: cbo,
-        innerHTML: vm.generateNodeHTML(8)
-      },
-      ciso3 = {
-        parent: cbo,
-        innerHTML: vm.generateNodeHTML(9)
-      },
-      ciso4 = {
-        parent: cbo,
-        innerHTML: vm.generateNodeHTML(10)
-      },
+    vm.generateTreantTreeNodes = function (rule, parentNode) {
+      var nodes = [];
 
-      chart_config = [
-      config,
-      ceo,cto,cbo,
-      cdo,cio,ciso,
-      cio2,ciso2,ciso3,ciso4
-      ];
-      return chart_config;
+      if (!rule) return nodes;
+
+      var nodeInfo = {innerHTML: vm.generateNodeHTML(rule.id)}
+      if (parentNode) nodeInfo.parent = parentNode;
+
+      nodes.push(nodeInfo)
+      var children = rule.getChildren();
+      for (var i = 0; i < children.length; i++) {
+        var childRule = children[i];
+        var childNodes = vm.generateTreantTreeNodes(childRule, nodeInfo);
+        nodes = nodes.concat(childNodes);
+      };
+
+      return nodes;
     }
 
     vm.generateNodeHTML = function (nodeId) {
-      return '<div id="node-' + nodeId + '"></rule>';
+      return '<div id="node-' + nodeId + '"></div>';
     }
 
-    vm.updateNodes = function () {
+    vm.updateNodesWithComponents = function (rule) {
+
       $timeout(function() {
-        for (var i = 1; i <= 11; i++) {
-          var nodeContainer = $("#node-" + i);
-          nodeContainer.append(
-            $compile("<rule></rule>")($scope)
-          );
+
+        // update node
+        var nodeContainer = $("#node-" + rule.id);
+        nodeContainer.append(
+          $compile("<rule></rule>")($scope)
+        );
+
+        // update children
+        var children = rule.getChildren();
+        for (var i = 0; i < children.length; i++) {
+          var childRule = children[i];
+          vm.updateNodesWithComponents(childRule);
         };
-      }, 100);
+      }, 50);
     }
   }

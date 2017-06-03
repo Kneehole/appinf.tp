@@ -14,7 +14,6 @@ function DemoRuleDao($q) {
     var deferred = $q.defer();
 
     setTimeout(function() {
-
       var rootRule = new RootRule();
       var groupRule = new GroupRule();
       groupRule.addChild(new Rule());
