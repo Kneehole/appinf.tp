@@ -8,3 +8,12 @@ function Match(source, startIndex, endIndex, stringMatch) {
   this.endIndex = endIndex;
   this.stringMatch = stringMatch;
 };
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+Match.prototype.toString = function () {
+  return '[Object Match]';
+};

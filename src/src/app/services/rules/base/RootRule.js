@@ -39,3 +39,12 @@ RootRule.prototype.getChildren = function () {
   return this.rule ? [this.rule] : [];
 };
 
+/**
+ * @params
+ *
+ * @return: String
+ */
+RootRule.prototype.toString = function () {
+  return '[Object RootRule]';
+};
+

@@ -55,3 +55,12 @@ Rule.prototype.describe = function () {
 Rule.prototype.matches = function (text) {
   throw new Error('method not implemented');
 };
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+Rule.prototype.toString = function () {
+  return '[Object Rule]';
+};

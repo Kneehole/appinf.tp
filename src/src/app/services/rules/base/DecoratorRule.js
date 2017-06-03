@@ -37,3 +37,12 @@ DecoratorRule.prototype.getRule = function () {
 DecoratorRule.prototype.getChildren = function () {
   return [this.rule];
 };
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+DecoratorRule.prototype.toString = function () {
+  return '[Object DecoratorRule]';
+};

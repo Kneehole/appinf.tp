@@ -41,3 +41,12 @@ GroupRule.prototype.removeChild = function (rule) {
     return aRule.id != rule.id
   });
 };
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+GroupRule.prototype.toString = function () {
+  return '[Object GroupRule]';
+};

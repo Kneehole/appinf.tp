@@ -26,21 +26,21 @@ angular
     };
 
     vm.updateTree = function (rootRule) {
+      vm.cleanTree();        
       var treantTreeData = vm.generateTreantTreeData(rootRule);
-      vm.cleanContainer();        
       vm.treantTree = new Treant(treantTreeData);
     }
 
-    vm.cleanContainer = function () {
+/**
+ * Treant data management
+ */
+     vm.cleanTree = function () {
       var containerId = "rules-tree-container";
       $("#"+containerId).empty();
       var container = document.getElementById(containerId);
       container.innerHTML +='<div id="rules-tree" style="width:100%; height: 100%"></div>';
     }
 
-/**
- * Treant data management
- */
     vm.generateTreantTreeData = function (rootRule) {
       var config = vm.getTreantTreeConfig();
       var nodes = vm.generateTreantTreeNodes(rootRule);
@@ -93,21 +93,26 @@ angular
     }
 
     vm.updateNodesWithComponents = function (rule) {
-
+      vm.plainRules = vm.generatePlainRules(rule);
       $timeout(function() {
-
-        // update node
-        var nodeContainer = $("#node-" + rule.id);
-        nodeContainer.append(
-          $compile("<rule></rule>")($scope)
-        );
-
-        // update children
-        var children = rule.getChildren();
-        for (var i = 0; i < children.length; i++) {
-          var childRule = children[i];
-          vm.updateNodesWithComponents(childRule);
+        for (var i = 0; i < vm.plainRules.length; i++) {
+          var insertRule = vm.plainRules[i];
+          var nodeContainer = $('#node-' + insertRule.id);
+          nodeContainer.append(
+            $compile('<rule data=$ctrl.plainRules[' + i + ']></rule>')($scope)
+          );
         };
       }, 50);
+    }
+
+    vm.generatePlainRules = function (rule) {
+      var rules = [rule];
+      var children = rule.getChildren();
+      for (var i = 0; i < children.length; i++) {
+        var childRule = children[i];
+        rules = rules.concat(vm.generatePlainRules(childRule));
+      };
+
+      return rules;
     }
   }
