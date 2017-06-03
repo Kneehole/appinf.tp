@@ -5,8 +5,15 @@ angular
     controller: HomeController
   });
 
-HomeController.$inject = ['RootRule', 'GroupRule'];
+HomeController.$inject = ['DemoRuleDao'];
 
-function HomeController() {
-  this.hello = 'Hello World!';
+function HomeController(DemoRuleDao) {
+  var vm = this;
+  vm.hello = 'Hello World!';
+
+  DemoRuleDao.generateSimpleDemoRule().then(function (rootRule) {
+    vm.rootRule = rootRule;
+  });
+
+  vm.rootRule = new RootRule();
 }

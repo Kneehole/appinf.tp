@@ -11,11 +11,12 @@ function GroupRule() {
 GroupRule.prototype = Object.create(Rule.prototype);
 
 /**
+ * @Override
  * @params
  *
  * @return: Array<Rule>
  */
-GroupRule.prototype.getRules = function () {
+GroupRule.prototype.getChildren = function () {
   return this.childrenRules;
 };
 
@@ -25,7 +26,7 @@ GroupRule.prototype.getRules = function () {
  *
  * @return: Void
  */
-GroupRule.prototype.addRule = function (rule) {
+GroupRule.prototype.addChild = function (rule) {
   this.childrenRules.push(rule);
 };
 
@@ -35,7 +36,7 @@ GroupRule.prototype.addRule = function (rule) {
  *
  * @return: Void
  */
-GroupRule.prototype.removeRule = function (rule) {
+GroupRule.prototype.removeChild = function (rule) {
   this.childrenRules = this.childrenRules.filter(function (aRule) {
     return aRule.id != rule.id
   });

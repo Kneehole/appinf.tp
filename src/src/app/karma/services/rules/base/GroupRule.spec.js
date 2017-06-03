@@ -8,23 +8,23 @@ describe('GroupRule', function () {
   it('Add Rule', inject(function () {
     var groupRule = new GroupRule();
     
-    groupRule.addRule(new Rule());
-    groupRule.addRule(new Rule());
+    groupRule.addChild(new Rule());
+    groupRule.addChild(new Rule());
 
-    expect(groupRule.getRules().length).toEqual(2);
+    expect(groupRule.getChildren().length).toEqual(2);
   }));
 
   it('Remove Rule', inject(function () {
     var groupRule = new GroupRule();
     var rule = new Rule();
-    groupRule.addRule(rule);
-    groupRule.addRule(new Rule());
+    groupRule.addChild(rule);
+    groupRule.addChild(new Rule());
 
-    expect(groupRule.getRules().length).toEqual(2);
+    expect(groupRule.getChildren().length).toEqual(2);
 
-    groupRule.removeRule(rule);
+    groupRule.removeChild(rule);
 
-    expect(groupRule.getRules().length).toEqual(1);
-    expect(groupRule.getRules()[0].id).not.toBe(rule.id);
+    expect(groupRule.getChildren().length).toEqual(1);
+    expect(groupRule.getChildren()[0].id).not.toBe(rule.id);
   }));
 });

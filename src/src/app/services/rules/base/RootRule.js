@@ -18,3 +18,23 @@ RootRule.prototype = Object.create(Rule.prototype);
 RootRule.prototype.setRule = function (rule) {
   this.rule = rule;
 };
+
+/**
+ * @params
+ *
+ * @return: Rule
+ */
+RootRule.prototype.getRule = function () {
+  return this.rule;
+};
+
+/**
+ * @Override
+ * @params
+ *
+ * @return: Array<Rule>
+ */
+RootRule.prototype.getChildren = function () {
+  return [this.rule];
+};
+

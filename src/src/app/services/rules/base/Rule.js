@@ -22,6 +22,24 @@ Rule.prototype.setParent = function (parentRule) {
 /**
  * @params
  *
+ * @return: Rule
+ */
+Rule.prototype.getParent = function () {
+  return this.parentRule;
+};
+
+/**
+ * @params
+ *
+ * @return: Array<Rule>
+ */
+Rule.prototype.getChildren = function () {
+  throw new Error('method not implemented');
+};
+
+/**
+ * @params
+ *
  * @return: String
  */
 Rule.prototype.describe = function () {
