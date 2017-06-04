@@ -58,3 +58,31 @@ RootRule.prototype.isExtensible = function () {
   return !this.rule;
 };
 
+/**
+ * @Override
+ * @params
+ *
+ * @return: String
+ */
+RootRule.prototype.getName = function () {
+  return 'Root';
+};
+
+/**
+ * @Override
+ * @params
+ *
+ * @return: String
+ */
+RootRule.prototype.getDescription = function () {
+  return '';
+};
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+RootRule.prototype.getType = function () {
+  return 'root';
+};

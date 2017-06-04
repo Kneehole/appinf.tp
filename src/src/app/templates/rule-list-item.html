@@ -1,19 +1,12 @@
 <div class="card horizontal" 
   drag-container="true"
   drag-data="$ctrl.data">
-  <!--
-      <div class="card-image">
-        <img src="http://lorempixel.com/100/190/nature/6">
-      </div>
-    -->
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>{{ $ctrl.data.id }} - {{ $ctrl.data.toString() }}</p>
-        </div>
-        <!--
-        <div class="card-action">
-          <a href="#">Modify</a>
-        </div>
-        -->
-      </div>
+  
+  <div class="card-stacked">
+    <div class="card-content">
+      <div class="tree-rule-name {{ $ctrl.data.getType() }}">{{ $ctrl.data.getName() }}</div>
+      <div class="tree-rule-desc">{{ $ctrl.data.getDescription() }}</div>
     </div>
+
+  </div>
+</div>

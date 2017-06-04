@@ -60,3 +60,32 @@ GroupRule.prototype.toString = function () {
 GroupRule.prototype.isExtensible = function () {
   return true;
 };
+
+/**
+ * @Override
+ * @params
+ *
+ * @return: String
+ */
+GroupRule.prototype.getName = function () {
+  return 'Group';
+};
+
+/**
+ * @Override
+ * @params
+ *
+ * @return: String
+ */
+GroupRule.prototype.getDescription = function () {
+  return 'Abstract join among rules';
+};
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+GroupRule.prototype.getType = function () {
+  return 'group';
+};

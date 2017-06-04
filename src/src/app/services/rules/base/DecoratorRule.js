@@ -36,7 +36,7 @@ DecoratorRule.prototype.getRule = function () {
  * @return: Array<Rule>
  */
 DecoratorRule.prototype.getChildren = function () {
-  return [this.rule];
+  return this.rule ? [this.rule] : [];
 };
 
 /**
@@ -55,4 +55,33 @@ DecoratorRule.prototype.toString = function () {
  */
 DecoratorRule.prototype.isExtensible = function () {
   return !this.rule;
+};
+
+/**
+ * @Override
+ * @params
+ *
+ * @return: String
+ */
+DecoratorRule.prototype.getName = function () {
+  return 'Modifier';
+};
+
+/**
+ * @Override
+ * @params
+ *
+ * @return: String
+ */
+DecoratorRule.prototype.getDescription = function () {
+  return 'Abstract modification';
+};
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+DecoratorRule.prototype.getType = function () {
+  return 'decorator';
 };

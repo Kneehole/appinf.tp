@@ -14,7 +14,7 @@ angular
   function RuleController ($scope, $timeout, $compile) {
     var vm = this;
 
-    vm.style = "background-color:white;";
+    vm.dragover = '';
 
     vm.$onChanges = function (changesObj) {
       if (changesObj.data) {
@@ -27,15 +27,15 @@ angular
     }
 
     vm.onDragStartEnter = function ($event, $dragData) {
-      vm.style = "background-color:red;";
+      vm.dragover = 'dragover';
     }
 
     vm.onDragOver = function ($event, $dragData) {
-      vm.style = "background-color:red;";
+      vm.dragover = 'dragover';
     }
 
     vm.onDragLeave = function ($event, $dragData) {
-      vm.style = "background-color:white;";
+      vm.dragover = '';
     }
 
     vm.onDrop = function ($event, $dragData) {

@@ -73,3 +73,30 @@ Rule.prototype.toString = function () {
 Rule.prototype.isExtensible = function () {
   return false;
 };
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+Rule.prototype.getName = function () {
+  return 'Abstract Rule';
+};
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+Rule.prototype.getDescription = function () {
+  return 'Empty functionality';
+};
+
+/**
+ * @params
+ *
+ * @return: String
+ */
+Rule.prototype.getType = function () {
+  return 'leaf';
+};

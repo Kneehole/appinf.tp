@@ -1,25 +1,16 @@
-<div class="card horizontal" 
+<div class='card horizontal {{ $ctrl.dragover }}' 
   drop-container
   drop-accepts="$ctrl.checkDragData($dragData)"
   on-drag-enter="$ctrl.onDragStartEnter($event, $dragData)"
   on-drag-over="$ctrl.onDragOver($event, $dragData)"
   on-drag-leave="$ctrl.onDragLeave($event, $dragData)"
-  on-drop="$ctrl.onDrop($event, $dragData)"
+  on-drop="$ctrl.onDrop($event, $dragData)">
 
-  style='{{ $ctrl.style }}'>
-  <!--
-      <div class="card-image">
-        <img src="http://lorempixel.com/100/190/nature/6">
-      </div>
-    -->
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>{{ $ctrl.data.id }} - {{ $ctrl.data.toString() }}</p>
-        </div>
-        <!--
-        <div class="card-action">
-          <a href="#">Modify</a>
-        </div>
-        -->
-      </div>
+  <div class="card-stacked">
+    <div class="card-content">
+      <div class="tree-rule-name {{ $ctrl.data.getType() }}">{{ $ctrl.data.getName() }}</div>
+      <div class="tree-rule-desc">{{ $ctrl.data.getDescription() }}</div>
     </div>
+
+  </div>
+</div>

@@ -62,7 +62,7 @@ angular
           type: 'step'
         },
         node: {
-          HTMLclass: 'ruleNode'
+          HTMLclass: 'rule-node'
         },
         callback: {
           onTreeLoaded: function () {
