@@ -4,38 +4,34 @@ angular
 
 function AnyQuantityRule() {
   DecoratorRule.call(this);
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.describe = function () {
+    return this.rule ? this.rule.describe() + '*' : '';
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getName = function () {
+    return 'Any Quantity';
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getDescription = function () {
+    return 'Zero o more times';
+  };
 }
-
-// inheritance
-AnyQuantityRule.prototype = Object.create(DecoratorRule.prototype);
-AnyQuantityRule.prototype.constructor = AnyQuantityRule;
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-AnyQuantityRule.prototype.describe = function () {
-  return this.rule ? this.rule.describe() + '*' : '';
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-AnyQuantityRule.prototype.getName = function () {
-  return 'Any Quantity';
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-AnyQuantityRule.prototype.getDescription = function () {
-  return 'Zero o more times';
-};

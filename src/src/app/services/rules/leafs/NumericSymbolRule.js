@@ -5,28 +5,24 @@ angular
 function NumericSymbolRule() {
   SymbolRule.call(this);
   this.symbol = '[0-9]';
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getName = function () {
+    return 'Numeric Symbol';
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getDescription = function () {
+    return 'Any number is possible';
+  };
 }
-
-// inheritance
-NumericSymbolRule.prototype = Object.create(SymbolRule.prototype);
-NumericSymbolRule.prototype.constructor = NumericSymbolRule;
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-NumericSymbolRule.prototype.getName = function () {
-  return 'Numeric Symbol';
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-NumericSymbolRule.prototype.getDescription = function () {
-  return 'Any number is possible';
-};

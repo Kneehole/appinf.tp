@@ -5,28 +5,24 @@ angular
 function AlphabeticSymbolRule() {
   SymbolRule.call(this);
   this.symbol = '[a-zA-Z]';
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getName = function () {
+    return 'Alphabetic Symbol';
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getDescription = function () {
+    return 'Any alphabet character';
+  };
 }
-
-// inheritance
-AlphabeticSymbolRule.prototype = Object.create(SymbolRule.prototype);
-AlphabeticSymbolRule.prototype.constructor = AlphabeticSymbolRule;
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-AlphabeticSymbolRule.prototype.getName = function () {
-  return 'Alphabetic Symbol';
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-AlphabeticSymbolRule.prototype.getDescription = function () {
-  return 'Any alphabet character';
-};

@@ -4,38 +4,34 @@ angular
 
 function MoreThanZeroQuantityRule() {
   DecoratorRule.call(this);
+
+    /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.describe = function () {
+    return this.rule ? this.rule.describe() + '+' : '';
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getName = function () {
+    return 'More than zero times';
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getDescription = function () {
+    return 'One or more times';
+  };
 }
-
-// inheritance
-MoreThanZeroQuantityRule.prototype = Object.create(DecoratorRule.prototype);
-MoreThanZeroQuantityRule.prototype.constructor = MoreThanZeroQuantityRule;
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-MoreThanZeroQuantityRule.prototype.describe = function () {
-  return this.rule ? this.rule.describe() + '+' : '';
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-MoreThanZeroQuantityRule.prototype.getName = function () {
-  return 'More than zero times';
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-MoreThanZeroQuantityRule.prototype.getDescription = function () {
-  return 'One or more times';
-};

@@ -5,87 +5,83 @@ angular
 function GroupRule() {
   Rule.call(this);
   this.childrenRules = [];
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: Array<Rule>
+   */
+  this.getChildren = function () {
+    return this.childrenRules;
+  };
+
+  /**
+   * @params
+   * rule: Rule
+   *
+   * @return: Void
+   */
+  this.addChild = function (rule) {
+    this.childrenRules.push(rule);
+  };
+
+  /**
+   * @params
+   * rule: Rule
+   *
+   * @return: Void
+   */
+  this.removeChild = function (rule) {
+    this.childrenRules = this.childrenRules.filter(function (aRule) {
+      return aRule.id != rule.id
+    });
+  };
+
+  /**
+   * @params
+   *
+   * @return: String
+   */
+  this.toString = function () {
+    return '[Object GroupRule]';
+  };
+
+  /**
+   * @params
+   *
+   * @return: Boolean
+   */
+  this.isExtensible = function () {
+    return true;
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getName = function () {
+    return 'Group';
+  };
+
+  /**
+   * @Override
+   * @params
+   *
+   * @return: String
+   */
+  this.getDescription = function () {
+    return 'Abstract join among rules';
+  };
+
+  /**
+   * @params
+   *
+   * @return: String
+   */
+  this.getType = function () {
+    return 'group';
+  };
 }
-
-// inheritance
-GroupRule.prototype = Object.create(Rule.prototype);
-GroupRule.prototype.constructor = GroupRule;
-
-/**
- * @Override
- * @params
- *
- * @return: Array<Rule>
- */
-GroupRule.prototype.getChildren = function () {
-  return this.childrenRules;
-};
-
-/**
- * @params
- * rule: Rule
- *
- * @return: Void
- */
-GroupRule.prototype.addChild = function (rule) {
-  this.childrenRules.push(rule);
-};
-
-/**
- * @params
- * rule: Rule
- *
- * @return: Void
- */
-GroupRule.prototype.removeChild = function (rule) {
-  this.childrenRules = this.childrenRules.filter(function (aRule) {
-    return aRule.id != rule.id
-  });
-};
-
-/**
- * @params
- *
- * @return: String
- */
-GroupRule.prototype.toString = function () {
-  return '[Object GroupRule]';
-};
-
-/**
- * @params
- *
- * @return: Boolean
- */
-GroupRule.prototype.isExtensible = function () {
-  return true;
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-GroupRule.prototype.getName = function () {
-  return 'Group';
-};
-
-/**
- * @Override
- * @params
- *
- * @return: String
- */
-GroupRule.prototype.getDescription = function () {
-  return 'Abstract join among rules';
-};
-
-/**
- * @params
- *
- * @return: String
- */
-GroupRule.prototype.getType = function () {
-  return 'group';
-};

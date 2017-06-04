@@ -7,13 +7,13 @@ function Match(source, startIndex, endIndex, stringMatch) {
   this.startIndex = startIndex;
   this.endIndex = endIndex;
   this.stringMatch = stringMatch;
-};
 
-/**
- * @params
- *
- * @return: String
- */
-Match.prototype.toString = function () {
-  return '[Object Match]';
+  /**
+   * @params
+   *
+   * @return: String
+   */
+  this.toString = function () {
+    return '[Object Match]';
+  };
 };
