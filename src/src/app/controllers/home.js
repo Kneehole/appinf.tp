@@ -5,9 +5,9 @@ angular
     controller: HomeController
   });
 
-HomeController.$inject = ['DemoRuleDao'];
+HomeController.$inject = ['$scope', 'DemoRuleDao'];
 
-function HomeController(DemoRuleDao) {
+function HomeController($scope, DemoRuleDao) {
   var vm = this;
 
   DemoRuleDao.generateSimpleDemoRule().then(function (rootRule) {
@@ -15,4 +15,8 @@ function HomeController(DemoRuleDao) {
   });
 
   vm.rootRule = new RootRule();
+
+  vm.ruleChanged = function () {
+    $scope.$apply();
+  }
 }

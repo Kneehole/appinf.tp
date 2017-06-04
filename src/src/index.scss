@@ -10,6 +10,15 @@ body {
   display: flex;
 }
 
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
 /*********************************************************
  * Rules list
 *********************************************************/
@@ -23,13 +32,24 @@ rules-list {
 *********************************************************/
 
 rules-tree {
-  flex: 1;
+  
 }
 
 .dragover {
   background-color: #eee;
 }
 
+/*********************************************************
+ * Tester
+*********************************************************/
+
+.regex-box {
+  width: auto;
+  height: 50px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 10px 0 10px;
+}
 
 /*********************************************************
  * Rules

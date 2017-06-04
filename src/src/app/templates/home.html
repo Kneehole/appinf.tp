@@ -2,6 +2,9 @@
 <h1>Regex-Tree</h1>
 
 <div class='horizontal-flex'>
-  <rules-tree root-rule='$ctrl.rootRule'></rules-tree>
+  <div class='vertical-flex flex-1'>
+    <rules-tree class='flex-1' root-rule='$ctrl.rootRule' on-update='$ctrl.ruleChanged()'></rules-tree>
+    <rule-tester root-rule='$ctrl.rootRule'></rule-tester>
+  </div>
   <rules-list></rules-list>
 </div>

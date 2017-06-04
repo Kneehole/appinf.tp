@@ -33,6 +33,7 @@ angular
 
     vm.ruleChanged = function (rule) {
       vm.updateTree(vm.rootRule);
+      vm.onUpdate(vm.data);
     }
 
 /**

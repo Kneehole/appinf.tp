@@ -41,6 +41,16 @@ RootRule.prototype.getChildren = function () {
 };
 
 /**
+ * @Override
+ * @params
+ *
+ * @return: String
+ */
+RootRule.prototype.describe = function () {
+  return this.rule ? this.rule.describe() : '';
+};
+
+/**
  * @params
  *
  * @return: String
