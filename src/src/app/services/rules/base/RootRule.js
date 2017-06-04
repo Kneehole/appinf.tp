@@ -8,6 +8,7 @@ function RootRule() {
 
 // inheritance
 RootRule.prototype = Object.create(Rule.prototype);
+RootRule.prototype.constructor = RootRule;
 
 /**
  * @params
@@ -46,5 +47,14 @@ RootRule.prototype.getChildren = function () {
  */
 RootRule.prototype.toString = function () {
   return '[Object RootRule]';
+};
+
+/**
+ * @params
+ *
+ * @return: Boolean
+ */
+RootRule.prototype.isExtensible = function () {
+  return !this.rule;
 };
 

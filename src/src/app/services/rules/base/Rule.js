@@ -64,3 +64,12 @@ Rule.prototype.matches = function (text) {
 Rule.prototype.toString = function () {
   return '[Object Rule]';
 };
+
+/**
+ * @params
+ *
+ * @return: Boolean
+ */
+Rule.prototype.isExtensible = function () {
+  return false;
+};

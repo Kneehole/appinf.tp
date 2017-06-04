@@ -31,6 +31,10 @@ angular
       vm.treantTree = new Treant(treantTreeData);
     }
 
+    vm.ruleChanged = function (rule) {
+      vm.updateTree(vm.rootRule);
+    }
+
 /**
  * Treant data management
  */
@@ -99,7 +103,7 @@ angular
           var insertRule = vm.plainRules[i];
           var nodeContainer = $('#node-' + insertRule.id);
           nodeContainer.append(
-            $compile('<rule data=$ctrl.plainRules[' + i + ']></rule>')($scope)
+            $compile('<rule data=$ctrl.plainRules[' + i + '] on-update=$ctrl.ruleChanged()></rule>')($scope)
           );
         };
       }, 50);

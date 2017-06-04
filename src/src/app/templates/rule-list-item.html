@@ -1,12 +1,6 @@
 <div class="card horizontal" 
-  drop-container
-  drop-accepts="$ctrl.checkDragData($dragData)"
-  on-drag-enter="$ctrl.onDragStartEnter($event, $dragData)"
-  on-drag-over="$ctrl.onDragOver($event, $dragData)"
-  on-drag-leave="$ctrl.onDragLeave($event, $dragData)"
-  on-drop="$ctrl.onDrop($event, $dragData)"
-
-  style='{{ $ctrl.style }}'>
+  drag-container="true"
+  drag-data="$ctrl.data">
   <!--
       <div class="card-image">
         <img src="http://lorempixel.com/100/190/nature/6">

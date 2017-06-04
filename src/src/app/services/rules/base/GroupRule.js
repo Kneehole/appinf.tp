@@ -9,6 +9,7 @@ function GroupRule() {
 
 // inheritance
 GroupRule.prototype = Object.create(Rule.prototype);
+GroupRule.prototype.constructor = GroupRule;
 
 /**
  * @Override
@@ -49,4 +50,13 @@ GroupRule.prototype.removeChild = function (rule) {
  */
 GroupRule.prototype.toString = function () {
   return '[Object GroupRule]';
+};
+
+/**
+ * @params
+ *
+ * @return: Boolean
+ */
+GroupRule.prototype.isExtensible = function () {
+  return true;
 };
