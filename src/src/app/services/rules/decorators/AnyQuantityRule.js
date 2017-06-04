@@ -17,7 +17,7 @@ AnyQuantityRule.prototype.constructor = AnyQuantityRule;
  * @return: String
  */
 AnyQuantityRule.prototype.describe = function () {
-  return this.rule.describe() + '*';
+  return this.rule ? this.rule.describe() + '*' : '';
 };
 
 /**

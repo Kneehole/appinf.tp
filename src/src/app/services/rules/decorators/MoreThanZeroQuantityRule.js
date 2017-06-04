@@ -17,7 +17,7 @@ MoreThanZeroQuantityRule.prototype.constructor = MoreThanZeroQuantityRule;
  * @return: String
  */
 MoreThanZeroQuantityRule.prototype.describe = function () {
-  return this.rule.describe() + '+';
+  return this.rule ? this.rule.describe() + '+' : '';
 };
 
 /**

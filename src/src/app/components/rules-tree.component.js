@@ -17,7 +17,7 @@ angular
     vm.treantTree = null;
 
     vm.$onChanges = function (changesObj) {
-      if (changesObj.rootRule) {
+      if (changesObj.rootRule && changesObj.rootRule.currentValue) {
         $timeout(function () {
           vm.updateTree(changesObj.rootRule.currentValue);
         })

@@ -17,7 +17,7 @@ AtLeastOneQuantityRule.prototype.constructor = AtLeastOneQuantityRule;
  * @return: String
  */
 AtLeastOneQuantityRule.prototype.describe = function () {
-  return this.rule.describe() + '?';
+  return this.rule ? this.rule.describe() + '?' : '';
 };
 
 /**

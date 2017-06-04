@@ -4,7 +4,7 @@
 <div class='horizontal-flex'>
   <div class='vertical-flex flex-1'>
     <rules-tree class='flex-1' root-rule='$ctrl.rootRule' on-update='$ctrl.ruleChanged()'></rules-tree>
-    <rule-tester root-rule='$ctrl.rootRule'></rule-tester>
+    <rule-tester root-rule='$ctrl.rootRule' helper='$ctrl.helper'></rule-tester>
   </div>
   <rules-list></rules-list>
 </div>

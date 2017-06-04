@@ -5,6 +5,7 @@ angular
     controller: RuleTesterController,
     bindings: {
       rootRule: '<',
+      helper: '<'
     }
   });
 
@@ -15,7 +16,17 @@ angular
 
     vm.$onChanges = function (changesObj) {
       if (changesObj.rootRule && changesObj.rootRule.currentValue) {
-        vm.currentRegex = changesObj.rootRule.currentValue.describe();
+        vm.reloadTests(changesObj.rootRule.currentValue);
       }
     };
+
+    vm.reloadTests = function (rootRule) {
+      vm.currentRegex = rootRule.describe();
+    }
+
+    $timeout(function () {
+      vm.helper.onUpdate = function () {
+        vm.reloadTests(vm.rootRule);
+      }
+    }, 500);
   }

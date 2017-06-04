@@ -26,7 +26,7 @@ function DemoRuleDao($q) {
       rootRule.setRule(groupRule);
 
       deferred.resolve(rootRule);
-    }, 200);
+    }, 500);
 
     return deferred.promise;
   }
