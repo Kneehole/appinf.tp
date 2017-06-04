@@ -3,6 +3,7 @@ const browserSync = require('browser-sync');
 const wiredep = require('wiredep').stream;
 const angularFilesort = require('gulp-angular-filesort');
 const gulpInject = require('gulp-inject');
+const concat = require('gulp-concat');
 
 const conf = require('../conf/gulp.conf');
 
@@ -14,7 +15,9 @@ function inject() {
     `!${conf.path.tmp('**/*.spec.js')}`,
     `!${conf.path.tmp('app/karma/**/*.spec.js')}`
   ])
-  .pipe(angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
+  .pipe(concat('app.js'))
+  .pipe(gulp.dest(conf.path.tmp()));
+  //.pipe(angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
 
   const injectOptions = {
     ignorePath: [conf.paths.src, conf.paths.tmp],

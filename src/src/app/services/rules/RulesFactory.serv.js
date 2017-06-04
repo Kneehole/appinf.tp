@@ -14,10 +14,17 @@ function RulesFactory($q) {
 
     setTimeout(function() {
       var rules = [
-        new RootRule(),
-        new Rule(),
-        new GroupRule(),
-        new DecoratorRule()
+        new SymbolRule(),
+        new NumericSymbolRule(),
+        new AlphabeticSymbolRule(),
+        new AnySymbolRule(),
+
+        new SymbolsGroupRule(),
+        new SequenceGroupRule(),
+
+        new AtLeastOneQuantityRule(),
+        new MoreThanZeroQuantityRule(),
+        new AnyQuantityRule()
       ];
 
       deferred.resolve(rules);

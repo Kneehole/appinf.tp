@@ -15,9 +15,14 @@ function DemoRuleDao($q) {
 
     setTimeout(function() {
       var rootRule = new RootRule();
-      var groupRule = new GroupRule();
-      groupRule.addChild(new Rule());
-      groupRule.addChild(new Rule());
+
+      var groupRule = new SequenceGroupRule();
+
+      var anyQuantityRule = new AnyQuantityRule();
+      anyQuantityRule.setRule(new AlphabeticSymbolRule());
+      
+      groupRule.addChild(anyQuantityRule);
+      groupRule.addChild(new NumericSymbolRule());
       rootRule.setRule(groupRule);
 
       deferred.resolve(rootRule);
