@@ -9,7 +9,6 @@ HomeController.$inject = ['DemoRuleDao'];
 
 function HomeController(DemoRuleDao) {
   var vm = this;
-  vm.hello = 'Hello World!';
 
   DemoRuleDao.generateSimpleDemoRule().then(function (rootRule) {
     vm.rootRule = rootRule;
