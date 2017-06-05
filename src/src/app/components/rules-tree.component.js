@@ -40,11 +40,6 @@ angular
     * Delete button
     *********************************************************/
 
-
-    vm.onDeleteDragOver = function ($event, $dragData) {
-
-    }
-
     vm.onDeleteDragOver = function ($event, $dragData) {
 
     }
@@ -54,9 +49,18 @@ angular
     }
 
     vm.onDeleteDrop = function ($event, $dragData) {
-
+        if ($dragData) {
+          var parentRule = $dragData.getParent();
+          if (parentRule) {
+            if (parentRule.setRule != undefined) {
+              parentRule.setRule(null);
+            } else if (parentRule.removeChild != undefined) {
+              parentRule.removeChild($dragData);
+            }
+          }
+          vm.ruleChanged(parentRule);
+        }
     }
-
 
     /*********************************************************
     * Treant data management
