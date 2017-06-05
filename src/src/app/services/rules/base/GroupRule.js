@@ -23,6 +23,7 @@ function GroupRule() {
    * @return: Void
    */
   this.addChild = function (rule) {
+    rule.setParent(this);
     this.childrenRules.push(rule);
   };
 
@@ -33,6 +34,7 @@ function GroupRule() {
    * @return: Void
    */
   this.removeChild = function (rule) {
+    rule.setParent(null);
     this.childrenRules = this.childrenRules.filter(function (aRule) {
       return aRule.id != rule.id
     });

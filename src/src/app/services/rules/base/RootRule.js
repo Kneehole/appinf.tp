@@ -12,7 +12,9 @@ function RootRule() {
    * @return: Void
    */
   this.setRule = function (rule) {
+    if (this.rule) this.rule.setParent(null);
     this.rule = rule;
+    if (rule) rule.setParent(this);
   };
 
   /**
