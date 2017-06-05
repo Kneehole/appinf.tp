@@ -8,6 +8,13 @@ angular
 function Rule() {
   this.id = globalRuleId++;
 
+  this.types = {
+    leaf: 'leaf',
+    root: 'root',
+    group: 'group',
+    decorator: 'decorator'
+  }
+
   /**
    * @params
    * parentRule: Rule
@@ -97,7 +104,7 @@ function Rule() {
    * @return: String
    */
   this.getType = function () {
-    return 'leaf';
+    return this.types.leaf;
   };
 }
 

@@ -20,9 +20,14 @@ function DemoRuleDao($q) {
 
       var anyQuantityRule = new AnyQuantityRule();
       anyQuantityRule.setRule(new AlphabeticSymbolRule());
+
+      var symbolsGroupRule = new SymbolsGroupRule();
+      symbolsGroupRule.addChild(new NumericSymbolRule());
+      symbolsGroupRule.addChild(new AlphabeticSymbolRule());
       
       groupRule.addChild(anyQuantityRule);
       groupRule.addChild(new NumericSymbolRule());
+      groupRule.addChild(symbolsGroupRule);
       rootRule.setRule(groupRule);
 
       deferred.resolve(rootRule);

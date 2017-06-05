@@ -14,7 +14,9 @@ function SymbolsGroupRule() {
   this.describe = function () {
     var symbols = '';
     for (var i = 0; i < this.childrenRules.length; i++) {
-      symbols += this.childrenRules[i].describe();
+      var symbol = this.childrenRules[i].describe();
+      if (symbol.indexOf('[') == 0) symbol = symbol.substring(1, symbol.length-1);
+      symbols += symbol;
     };
 
     return '['+symbols+']';
@@ -38,5 +40,14 @@ function SymbolsGroupRule() {
    */
   this.getDescription = function () {
     return 'Any of them are available';
+  };
+
+  /**
+   * @params
+   *
+   * @return: Boolean
+   */
+  this.isExtensible = function (childRule) {
+    return childRule.getType() == this.types.leaf;
   };
 }

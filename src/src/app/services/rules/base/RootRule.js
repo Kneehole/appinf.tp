@@ -91,7 +91,7 @@ function RootRule() {
    * @return: String
    */
   this.getType = function () {
-    return 'root';
+    return this.types.root;
   };
 }
 

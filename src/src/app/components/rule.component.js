@@ -66,7 +66,7 @@ angular
     *********************************************************/
 
     vm.checkDragData = function ($dragData) {
-      return $dragData && !$dragData.isFromTree && vm.data.isExtensible();
+      return $dragData && !$dragData.isFromTree && vm.data.isExtensible($dragData);
     }
 
     vm.onDragStartEnter = function ($event, $dragData) {

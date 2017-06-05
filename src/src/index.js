@@ -1,2 +1,2 @@
 angular
-  .module('app', ['angular-drag-drop', 'ui.router']);
+  .module('app', ['angular-drag-drop', 'ui.router', 'ngSanitize']);

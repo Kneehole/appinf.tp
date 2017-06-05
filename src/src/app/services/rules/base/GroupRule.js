@@ -84,6 +84,6 @@ function GroupRule() {
    * @return: String
    */
   this.getType = function () {
-    return 'group';
+    return this.types.group;
   };
 }

@@ -71,6 +71,17 @@ rules-tree .container {
   background-color: white;
   border-radius: 5px;
   margin: 0 10px 0 10px;
+  font-size: 25px;
+  font-family: monospace;
+  padding: 3px 10px 0 10px;
+}
+
+.regex-box brackets {
+  color: #18ca8f;
+}
+
+.regex-box multiplier {
+  color: #f7cc59;
 }
 
 /*********************************************************

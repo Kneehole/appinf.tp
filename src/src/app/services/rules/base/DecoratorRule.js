@@ -80,6 +80,6 @@ function DecoratorRule() {
    * @return: String
    */
   this.getType = function () {
-    return 'decorator';
+    return this.types.decorator;
   };
 }
