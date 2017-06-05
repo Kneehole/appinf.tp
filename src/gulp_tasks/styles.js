@@ -24,5 +24,10 @@ gulp.task('custom', function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task('styles', gulp.series('vendor', 'custom'));
+gulp.task('resources', function () {
+  return gulp.src(conf.path.src('assets/**/*'), {base: conf.path.src()})
+    .pipe(gulp.dest(conf.path.tmp()));
+});
+
+gulp.task('styles', gulp.series('vendor', 'custom', 'resources'));
 

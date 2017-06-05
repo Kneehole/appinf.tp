@@ -34,11 +34,31 @@ rules-list {
 *********************************************************/
 
 rules-tree {
-  
+
+}
+
+rules-tree .container {
+  position: relative;
 }
 
 .dragover {
   background-color: #eee;
+}
+
+.delete-rule-icon, .drag-active .delete-rule-icon.drop-container {
+  background-color: red;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  background: url("assets/delete-button.png") no-repeat;
+  background-size: cover;
+  visibility: visible;
+}
+
+.delete-rule-icon.hidden, .drag-active .delete-rule-icon.drop-container.hidden {
+  visibility: collapse;
 }
 
 /*********************************************************

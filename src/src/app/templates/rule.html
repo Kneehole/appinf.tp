@@ -1,4 +1,10 @@
 <div class='card horizontal {{ $ctrl.dragover }}' 
+  
+  drag-container="{{ $ctrl.isDraggable() }}"
+  drag-data="$ctrl.data"
+  on-drag-start="$ctrl.handleDragStart($event, $dragData)"
+  on-drag-end="$ctrl.handleDragEnd($event, $dragData)"
+
   drop-container
   drop-accepts="$ctrl.checkDragData($dragData)"
   on-drag-enter="$ctrl.onDragStartEnter($event, $dragData)"

@@ -36,10 +36,32 @@ angular
       vm.onUpdate(vm.data);
     }
 
-/**
- * Treant data management
- */
-     vm.cleanTree = function () {
+    /*********************************************************
+    * Delete button
+    *********************************************************/
+
+
+    vm.onDeleteDragOver = function ($event, $dragData) {
+
+    }
+
+    vm.onDeleteDragOver = function ($event, $dragData) {
+
+    }
+
+    vm.onDeleteDragLeave = function ($event, $dragData) {
+
+    }
+
+    vm.onDeleteDrop = function ($event, $dragData) {
+
+    }
+
+
+    /*********************************************************
+    * Treant data management
+    *********************************************************/
+    vm.cleanTree = function () {
       var containerId = "rules-tree-container";
       $("#"+containerId).empty();
       var container = document.getElementById(containerId);
