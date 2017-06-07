@@ -4,7 +4,8 @@ angular
 
 function AlphabeticSymbolRule() {
   SymbolRule.call(this);
-  this.symbol = '[a-zA-Z]';
+  this.value = '[a-zA-Z]';
+  this.inputValueMaxLength = 0;
 
   /**
    * @Override

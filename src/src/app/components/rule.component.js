@@ -22,6 +22,10 @@ angular
       }
     };
 
+    vm.valueChanged = function () {
+      vm.onUpdate(vm.data);
+    };
+
     vm.addChildIfPossible = function (childRule) {
       if (vm.data.setRule != undefined) {
         vm.data.setRule(childRule);

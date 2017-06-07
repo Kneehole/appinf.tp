@@ -4,7 +4,8 @@ angular
 
 function NumericSymbolRule() {
   SymbolRule.call(this);
-  this.symbol = '[0-9]';
+  this.value = '[0-9]';
+  this.inputValueMaxLength = 0;
 
   /**
    * @Override

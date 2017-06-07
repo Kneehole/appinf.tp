@@ -8,6 +8,10 @@ angular
 function Rule() {
   this.id = globalRuleId++;
 
+  // Value
+  this.value = 0;
+  this.inputValueMaxLength = 0;
+
   this.types = {
     leaf: 'leaf',
     root: 'root',

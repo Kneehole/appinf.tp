@@ -24,6 +24,7 @@ function DemoRuleDao($q) {
       var symbolsGroupRule = new SymbolsGroupRule();
       symbolsGroupRule.addChild(new NumericSymbolRule());
       symbolsGroupRule.addChild(new AlphabeticSymbolRule());
+      symbolsGroupRule.addChild(new SymbolRule());
       
       groupRule.addChild(anyQuantityRule);
       groupRule.addChild(new NumericSymbolRule());

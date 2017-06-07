@@ -142,6 +142,27 @@ rules-tree .container {
   line-height: 13px;
 }
 
+.tree-rule-value {
+  padding: 5px 3px 5px 3px;
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.card-content input.tree-rule-input {
+  border: 1px solid grey; 
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+
+.card-content .hidden {
+  visibility: collapse;
+  height: 0px;
+}
+
+.card-content form {
+  height: 21px;
+}    
 
 
 

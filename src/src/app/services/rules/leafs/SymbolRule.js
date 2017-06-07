@@ -4,7 +4,8 @@ angular
 
 function SymbolRule() {
   Rule.call(this);
-  this.symbol = 'a';
+  this.value = 'a';
+  this.inputValueMaxLength = 1;
 
   /**
    * @Override
@@ -13,7 +14,7 @@ function SymbolRule() {
    * @return: String
    */
   this.describe = function () {
-    return this.symbol;
+    return this.value;
   };
 
   /**
@@ -33,6 +34,6 @@ function SymbolRule() {
    * @return: String
    */
   this.getDescription = function () {
-    return 'Selected symbol:' + this.symbol;
+    return 'Selected symbol is possible';
   };
 }

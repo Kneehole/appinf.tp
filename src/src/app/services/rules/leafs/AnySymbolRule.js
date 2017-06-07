@@ -4,7 +4,8 @@ angular
 
 function AnySymbolRule() {
   SymbolRule.call(this);
-  this.symbol = '.';
+  this.value = '.';
+  this.inputValueMaxLength = 0;
 
   /**
    * @Override
