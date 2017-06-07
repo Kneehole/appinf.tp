@@ -14,7 +14,12 @@ const ngAnnotate = require('gulp-ng-annotate');
 
 const conf = require('../conf/gulp.conf');
 
-gulp.task('build', build);
+gulp.task('pre-build', function () {
+  return gulp.src(conf.path.src('../bower_components/materialize/fonts/**/*'), {base: conf.path.src('../bower_components/materialize/')})
+    .pipe(gulp.dest(conf.path.dist()));
+});
+
+gulp.task('do-build', build);
 
 function build() {
   const partialsInjectFile = gulp.src(conf.path.tmp('templateCacheHtml.js'), {read: false});
@@ -47,3 +52,6 @@ function build() {
     .pipe(htmlFilter.restore)
     .pipe(gulp.dest(conf.path.dist()));
 }
+
+gulp.task('build', gulp.series('pre-build', 'do-build'));
+
