@@ -13,6 +13,7 @@ body {
 
 .horizontal-flex {
   display: flex;
+  flex-direction: row;
 }
 
 .vertical-flex {
@@ -24,12 +25,36 @@ body {
   flex: 1;
 }
 
+.home-container {
+
+}
+
+.home-tree-container {
+  width: calc(100% - 150px);
+}
+
+.home-tree-container rules-tree {
+  height: 80%
+}
+
+.home-tree-container rule-tester {
+  height: 20%
+}
+
+
+.home-container rules-list {
+  width: 150px;
+}
+
+.home-rules-tree {
+  //overflow: scroll;
+}
+
 /*********************************************************
  * Rules list
 *********************************************************/
 
 rules-list {
-  width: 200px;
   height: 80vh;
   overflow-y: auto;
 }
@@ -99,24 +124,25 @@ rules-tree .container {
 *********************************************************/
 
 .rule-node {
-  width: 120px;
-  height: 90px;
+  width: 100px;
+  height: 70px;
 }
 
 .rule-node .card.horizontal {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
 .card .card-content {
   padding: 0px;
-  min-height: 80px;
+  min-height: 70px;
 }
 
 .tree-rule-name {
   padding: 5px 5px;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 11px;
   text-align: center;
 }
 
@@ -138,8 +164,8 @@ rules-tree .container {
 
 .tree-rule-desc {
   padding: 5px 3px 5px 3px;
-  font-size: 12px;
-  line-height: 13px;
+  font-size: 10px;
+  line-height: 12px;
 }
 
 .tree-rule-value {
@@ -151,8 +177,8 @@ rules-tree .container {
 .card-content input.tree-rule-input {
   border: 1px solid grey; 
   text-align: center;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .card-content .hidden {
@@ -164,5 +190,37 @@ rules-tree .container {
   height: 21px;
 }    
 
+// resize fo mobile
+@media only screen and (max-width: 500px) {
+  rules-tree .rule-node {
+    width: 60px;
+    height: 30px;
+  }
+
+  rules-tree .tree-rule-desc {
+    padding: 0;
+    height: 0px;
+    visibility: hidden;
+  }
+
+  rules-tree .card .card-content {
+    padding: 0px;
+    min-height: 30px;
+  }
+
+  rules-tree .tree-rule-name {
+    font-size: 9px;
+  }
+
+  rules-tree .tree-rule-value {
+    font-size: 9px;
+    line-height: 10px;
+  }
+
+  rules-tree .card-content input.tree-rule-input {
+    width: 15px;
+    height: 15px;
+  }
+}
 
 

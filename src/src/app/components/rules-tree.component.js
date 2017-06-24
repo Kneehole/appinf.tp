@@ -9,9 +9,9 @@ angular
     }
   });
 
-  RulesTreeController.$inject = ['$scope', '$timeout', '$compile'];
+  RulesTreeController.$inject = ['$scope', '$timeout', '$compile', '$window'];
 
-  function RulesTreeController ($scope, $timeout, $compile) {
+  function RulesTreeController ($scope, $timeout, $compile, $window) {
     var vm = this;
 
     vm.treantTree = null;
@@ -146,4 +146,16 @@ angular
 
       return rules;
     }
+
+    /*********************************************************
+    * Screen resize refresh
+    *********************************************************/
+    angular.element($window).bind('resize', function() {
+      if (!vm.resizeLock) {
+        vm.resizeLock = true;
+        vm.updateTree(vm.rootRule);
+        $timeout(function () {vm.resizeLock = false;}, 200);
+      }
+    });
+
   }
