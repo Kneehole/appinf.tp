@@ -14,6 +14,10 @@ function HomeController($scope, $timeout, DemoRuleDao) {
     vm.rootRule = rootRule;
   });
 
+  DemoRuleDao.generateSimpleDemoTesterText().then(function (testerText) {
+    vm.testerText = testerText;
+  });
+
   //vm.rootRule = new RootRule();
 
   vm.helper = {};

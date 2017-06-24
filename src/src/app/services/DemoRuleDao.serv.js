@@ -7,7 +7,8 @@ DemoRuleDao.$inject = ['$q'];
 
 function DemoRuleDao($q) {
   return {
-    generateSimpleDemoRule: generateSimpleDemoRule
+    generateSimpleDemoRule: generateSimpleDemoRule,
+    generateSimpleDemoTesterText: generateSimpleDemoTesterText
   }
 
   function generateSimpleDemoRule () {
@@ -31,6 +32,24 @@ function DemoRuleDao($q) {
       rootRule.setRule(groupRule);
 
       deferred.resolve(rootRule);
+    }, 500);
+
+    return deferred.promise;
+  }
+
+  function generateSimpleDemoTesterText () {
+    var deferred = $q.defer();
+
+    setTimeout(function() {
+      var testerText = '' +
+        'Hello World \n' +
+        'World Hello\n' +
+        'HelloWorld \n' +
+        'Hello      World \n' +
+        'Hello Hello World World\n' +
+        'He llo Wo rld\n';
+
+      deferred.resolve(testerText);
     }, 500);
 
     return deferred.promise;
