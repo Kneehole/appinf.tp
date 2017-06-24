@@ -34,11 +34,11 @@ body {
 }
 
 .home-tree-container rules-tree {
-  height: 80%
+  height: 60%
 }
 
 .home-tree-container rule-tester {
-  height: 20%
+  height: 40%
 }
 
 
@@ -47,7 +47,7 @@ body {
 }
 
 .home-rules-tree {
-  //overflow: scroll;
+
 }
 
 /*********************************************************
@@ -96,6 +96,10 @@ rules-tree .container {
   visibility: collapse;
 }
 
+.Treant {
+  overflow-y: scroll;
+}
+
 /*********************************************************
  * Tester
 *********************************************************/
@@ -117,6 +121,17 @@ rules-tree .container {
 
 .regex-box multiplier {
   color: #f7cc59;
+}
+
+.tester-area {
+  width: calc(100% - 20px);
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  border-color: transparent; 
+  font-size: 15px;
 }
 
 /*********************************************************
