@@ -19,7 +19,7 @@
       
       <div class="tree-rule-value {{ $ctrl.data.inputValueMaxLength  > 0 ? '' : 'hidden' }}">
         <form>
-          Value: <input class="tree-rule-input" type="text" name="fname" ng-model='$ctrl.data.value' ng-change=$ctrl.valueChanged() select-on-click>
+          Value: <input class="tree-rule-input" type="text" name="fname" ng-model='$ctrl.data.value' ng-blur='$ctrl.valueBlur()' ng-change=$ctrl.valueChanged() select-on-click>
         </form>
       </div>
     </div>

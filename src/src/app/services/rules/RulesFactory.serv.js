@@ -18,6 +18,7 @@ function RulesFactory($q) {
         new NumericSymbolRule(),
         new AlphabeticSymbolRule(),
         new AnySymbolRule(),
+        new WordRule(),
 
         new SymbolsGroupRule(),
         new SequenceGroupRule(),

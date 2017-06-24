@@ -23,7 +23,15 @@ angular
     };
 
     vm.valueChanged = function () {
-      vm.onUpdate(vm.data);
+      if (vm.data.value.length >= vm.data.inputValueMaxLength) {
+        vm.onUpdate(vm.data);
+      }
+    };
+
+    vm.valueBlur = function () {
+      if (vm.data.value.length < vm.data.inputValueMaxLength) {
+        vm.onUpdate(vm.data);
+      }
     };
 
     vm.addChildIfPossible = function (childRule) {

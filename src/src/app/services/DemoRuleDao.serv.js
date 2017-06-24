@@ -18,17 +18,16 @@ function DemoRuleDao($q) {
 
       var groupRule = new SequenceGroupRule();
 
-      var anyQuantityRule = new AnyQuantityRule();
-      anyQuantityRule.setRule(new AlphabeticSymbolRule());
+      var holaRule = new WordRule('Hello');
 
-      var symbolsGroupRule = new SymbolsGroupRule();
-      symbolsGroupRule.addChild(new NumericSymbolRule());
-      symbolsGroupRule.addChild(new AlphabeticSymbolRule());
-      symbolsGroupRule.addChild(new SymbolRule());
-      
-      groupRule.addChild(anyQuantityRule);
-      groupRule.addChild(new NumericSymbolRule());
-      groupRule.addChild(symbolsGroupRule);
+      var spaceRule = new AnyQuantityRule();
+      spaceRule.setRule(new SymbolRule(' '));
+
+      var mundoRule = new WordRule('World');
+
+      groupRule.addChild(holaRule);
+      groupRule.addChild(spaceRule);
+      groupRule.addChild(mundoRule);
       rootRule.setRule(groupRule);
 
       deferred.resolve(rootRule);

@@ -1,11 +1,11 @@
 angular
   .module('app')
-  .service('SymbolRule', SymbolRule);
+  .service('WordRule', WordRule);
 
-function SymbolRule(value) {
+function WordRule(value) {
   Rule.call(this);
   this.value = value || 'a';
-  this.inputValueMaxLength = 1;
+  this.inputValueMaxLength = 50;
 
   /**
    * @Override
@@ -14,7 +14,7 @@ function SymbolRule(value) {
    * @return: String
    */
   this.describe = function () {
-    return this.value;
+    return '(' + this.value + ')';
   };
 
   /**
@@ -24,7 +24,7 @@ function SymbolRule(value) {
    * @return: String
    */
   this.getName = function () {
-    return 'Symbol';
+    return 'Word';
   };
 
   /**
@@ -34,6 +34,6 @@ function SymbolRule(value) {
    * @return: String
    */
   this.getDescription = function () {
-    return 'Selected symbol is possible';
+    return 'Exact word matches';
   };
 }
