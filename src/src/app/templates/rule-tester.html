@@ -1,4 +1,4 @@
 <div class='regex-box' ng-bind-html="$ctrl.test()" ></div>
 <div class='tester-area'>
-  <textarea ng-model="$ctrl.text" placeholder='Insert your test cases here' smart-area="$ctrl.areaConfig"></textarea>
+  <textarea id="tester-text-area" ng-model="$ctrl.text" ng-change="$ctrl.testChanged()" placeholder='Insert your test cases here' smart-area="$ctrl.areaConfig"></textarea>
 </div>

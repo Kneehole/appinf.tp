@@ -19,7 +19,11 @@ angular
       if (changesObj.rootRule && changesObj.rootRule.currentValue) {
         vm.reloadTests(changesObj.rootRule.currentValue);
       }
-    };
+    }
+
+    vm.testChanged = function () {
+      vm.reloadAreaConfig(vm.rootRule);
+    }
 
     vm.reloadTests = function (rootRule) {
       vm.currentRegex = rootRule.describe();
@@ -62,10 +66,17 @@ angular
       if (words.length > 0) {
         newAreaConfig.autocomplete.push({
           words: words,
-          cssClass: 'tester-area-highlight'
+          cssClass: 'tester-area-highlight',
+          autocompleteOnSpace: false
         });
       }
-      vm.areaConfig = newAreaConfig;
+
+      $timeout(function () {
+        vm.areaConfig = newAreaConfig;
+      });
+
+      var textarea = $('#tester-text-area');
+      textarea.focus();      
     };
     vm.reloadAreaConfig();
   }
