@@ -47,6 +47,8 @@ function DemoRuleDao($q) {
         'HelloWorld \n' +
         'Hello      World \n' +
         'Hello Hello World World\n' +
+        'HHello World World\n' +
+        'Hello Hello WorldWorld\n' +
         'He llo Wo rld\n';
 
       deferred.resolve(testerText);

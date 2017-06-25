@@ -5,8 +5,7 @@
     "angular": "^1.6.2",
     "angular-ui-router": "1.0.0-beta.3",
     "materialize": "^0.98.2",
-    "angular-sanitize": "^1.6.4",
-    "smart-area": "^1.5.0"
+    "angular-sanitize": "^1.6.4"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.2"
