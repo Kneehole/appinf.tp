@@ -1,2 +1,2 @@
 angular
-  .module('app', ['angular-drag-drop', 'ui.router', 'ngSanitize']);
+  .module('app', ['angular-drag-drop', 'ui.router', 'ngSanitize', 'smartArea']);

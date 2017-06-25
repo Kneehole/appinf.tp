@@ -63,7 +63,8 @@ function Rule() {
    * @return: Array<Match>
    */
   this.matches = function (text) {
-    throw new Error('method not implemented');
+
+    return [];
   };
 
   /**

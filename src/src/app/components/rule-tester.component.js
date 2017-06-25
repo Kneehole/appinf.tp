@@ -5,6 +5,7 @@ angular
     controller: RuleTesterController,
     bindings: {
       rootRule: '<',
+      text: '<?',
       helper: '<'
     }
   });
@@ -23,6 +24,7 @@ angular
     vm.reloadTests = function (rootRule) {
       vm.currentRegex = rootRule.describe();
       vm.currentRegex = vm.stylishRegex(vm.currentRegex);
+      vm.reloadAreaConfig(rootRule);
     }
 
     vm.stylishRegex = function (regex) {
@@ -45,4 +47,21 @@ angular
         vm.reloadTests(vm.rootRule);
       }
     }, 500);
+
+    vm.reloadAreaConfig = function (rootRule) {
+      var words = []
+      if (rootRule) {
+        var matches = rootRule.matches();
+      }
+      
+      var newAreaConfig = vm.areaConfig = {autocomplete: []}
+      if (words.length > 0) {
+        newAreaConfig.autocomplete.push({
+          words: words,
+          cssClass: 'tester-area-highlight'
+        });
+      }
+      vm.areaConfig = newAreaConfig;
+    };
+    vm.reloadAreaConfig();
   }
