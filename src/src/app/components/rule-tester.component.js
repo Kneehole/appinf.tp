@@ -51,7 +51,11 @@ angular
     vm.reloadAreaConfig = function (rootRule) {
       var words = []
       if (rootRule) {
-        var matches = rootRule.matches();
+        var matches = rootRule.matches(vm.text);
+        for (var i = 0; i < matches.length; i++) {
+          var match = matches[i];
+          words.push(match.stringMatch);
+        };
       }
       
       var newAreaConfig = vm.areaConfig = {autocomplete: []}

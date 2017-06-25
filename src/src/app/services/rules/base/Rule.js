@@ -63,8 +63,7 @@ function Rule() {
    * @return: Array<Match>
    */
   this.matches = function (text) {
-
-    return [];
+    return RegexParser().parseMatches(this, text);
   };
 
   /**

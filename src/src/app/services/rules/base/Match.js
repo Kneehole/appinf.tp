@@ -2,11 +2,13 @@ angular
   .module('app')
   .factory('Match', Match);
 
-function Match(source, startIndex, endIndex, stringMatch) {
+function Match(source, startIndex, length, stringMatch) {
   this.source = source;
   this.startIndex = startIndex;
-  this.endIndex = endIndex;
+  this.length = length;
   this.stringMatch = stringMatch;
+
+
 
   /**
    * @params
