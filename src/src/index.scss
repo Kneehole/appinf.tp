@@ -1,5 +1,14 @@
 body {
-  background-color: lightgrey;
+  background-color: rgb(225, 225, 225);
+}
+
+.rounded-box {
+  background-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  border-width: 1px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
 }
 
 /*********************************************************
@@ -7,8 +16,20 @@ body {
 *********************************************************/
 
 .home-header {
-  font-family: fantasy;
-  text-align: center;
+  font-family: monospace;
+  font-style: italic;
+  text-align: left;
+  font-size: 30px;
+
+  padding: 10px 20px;
+  margin: 0;
+  background-color: #457abb; 
+  color: hsla(0,0%,100%,1);
+}
+
+.home-header a {
+  font-size: 17px;
+  color:rgba(186,224,255,.8);
 }
 
 .horizontal-flex {
@@ -30,15 +51,17 @@ body {
 }
 
 .home-tree-container {
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
   width: calc(100% - 150px);
 }
 
 .home-tree-container rules-tree {
-  height: 60%
+  height: 60%;
 }
 
 .home-tree-container rule-tester {
-  height: 40%
+  height: 40%;
+  padding-top: 10px;
 }
 
 
@@ -55,7 +78,7 @@ body {
 *********************************************************/
 
 rules-list {
-  height: 80vh;
+  height: 90vh;
   overflow-y: auto;
 }
 
@@ -69,11 +92,13 @@ rules-list .rule-list-item {
 *********************************************************/
 
 rules-tree {
-
+  margin-right: 10px;
 }
 
 rules-tree .container {
   position: relative;
+  margin: 0 auto;
+  max-width: none;
 }
 
 .dragover {
@@ -100,35 +125,33 @@ rules-tree .container {
   overflow-y: scroll;
 }
 
+rules-tree .card.horizontal {
+  border-radius: 5px; 
+  overflow: hidden;
+}
+
 /*********************************************************
  * Tester
 *********************************************************/
 
 .regex-box {
+  @extend .rounded-box;
+
   width: auto;
   height: 50px;
   background-color: white;
-  border-radius: 5px;
   margin: 0 10px 0 10px;
   font-size: 25px;
   font-family: monospace;
   padding: 3px 10px 0 10px;
 }
 
-.regex-box brackets {
-  color: #18ca8f;
-}
-
-.regex-box multiplier {
-  color: #f7cc59;
-}
-
 .tester-area {
+  @extend .rounded-box;
   width: calc(100% - 20px);
-  height: 100%;
+  height: 80%;
   margin: 10px;
-  background-color: white;
-  border-radius: 5px;
+
 }
 
 .tester-area textarea {
@@ -137,15 +160,54 @@ rules-tree .container {
   padding: 10px;
   border-color: transparent; 
   font-size: 15px;
+  font-family: monospace;
 }
 
-.tester-area-highlight {
-  color: #153b63;
-  background-color: #97cdf9
+sa-wrapper {
+  height: 100%;
 }
 
 .sa-dropdown {
   visibility: hidden;
+}
+
+/*********************************************************
+ * Tester Coloring
+*********************************************************/
+
+.regex-box brackets {
+  color: #1E88E5;
+}
+
+.regex-box multiplier {
+  color: #90CAF9;
+}
+
+.tester-area-highlight {
+  color: hsla(0,0%,100%,.9);
+  background-color: #1E88E5
+}
+
+/*********************************************************
+ * Rules Coloring
+*********************************************************/
+
+.tree-rule-name.root {
+  background-color: #1565C0;
+  color: hsla(0,0%,100%,.9);;
+}
+
+.tree-rule-name.group {
+  background-color: #1E88E5;
+  color: hsla(0,0%,100%,.9);;
+}
+  
+.tree-rule-name.decorator {
+  background-color: #64B5F6;
+}
+
+.tree-rule-name.leaf {
+  background-color: #BBDEFB;
 }
 
 /*********************************************************
@@ -175,22 +237,6 @@ rules-tree .container {
   text-align: center;
 }
 
-.tree-rule-name.leaf {
-  background-color: #cefdff;
-}
-
-.tree-rule-name.root {
-  background-color: #a8c4ff;
-}
-
-.tree-rule-name.group {
-  background-color: #79fbd0;
-}
-  
-.tree-rule-name.decorator {
-  background-color: #f7cc59;
-}
-
 .tree-rule-desc {
   padding: 5px 3px 5px 3px;
   font-size: 10px;
@@ -199,16 +245,23 @@ rules-tree .container {
 
 .tree-rule-value {
   padding: 5px 3px 5px 3px;
-  font-size: 12px;
-  line-height: 13px;
+  font-size: 11px;
+  line-height: 12px;
 }
 
 .card-content input.tree-rule-input {
+  @extend .rounded-box;
   font-size: 11px;
-  border: 1px solid grey; 
   text-align: center;
   width: 55px;
-  height: 18px;
+  height: 16px;
+
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  border-width: 1px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+
 }
 
 .card-content .hidden {

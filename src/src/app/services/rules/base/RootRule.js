@@ -82,7 +82,7 @@ function RootRule() {
    * @return: String
    */
   this.getDescription = function () {
-    return '';
+    return 'First parent rule';
   };
 
   /**

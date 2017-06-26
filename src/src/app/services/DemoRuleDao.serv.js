@@ -22,7 +22,7 @@ function DemoRuleDao($q) {
       var holaRule = new WordRule('Hello');
 
       var spaceRule = new AnyQuantityRule();
-      spaceRule.setRule(new SymbolRule(' '));
+      spaceRule.setRule(new WhiteSpaceSymbolRule());
 
       var mundoRule = new WordRule('World');
 
