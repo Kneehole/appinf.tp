@@ -14,7 +14,7 @@ function RulesFactory($q) {
 
     setTimeout(function() {
       var rules = [
-        new SymbolRule(),
+        new SimpleSymbolRule(),
         new NumericSymbolRule(),
         new AlphabeticSymbolRule(),
         new AnySymbolRule(),

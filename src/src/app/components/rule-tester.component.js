@@ -53,12 +53,13 @@ angular
     }, 500);
 
     vm.reloadAreaConfig = function (rootRule) {
+      var utils = new RuleUtils();
       var words = []
       if (rootRule) {
         var matches = rootRule.matches(vm.text);
         for (var i = 0; i < matches.length; i++) {
           var match = matches[i];
-          words.push(match.stringMatch);
+          words.push(utils.escapeValue(match.stringMatch));
         };
       }
       
