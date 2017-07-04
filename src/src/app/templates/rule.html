@@ -1,4 +1,4 @@
-<div class='tooltip card horizontal {{ $ctrl.dragover }}' 
+<div class='tooltip card horizontal {{ $ctrl.dragover }} {{ $ctrl.data.inputValueMaxLength  > 0 ? "" : "shift"}}' 
   
   drag-container="{{ $ctrl.isDraggable() }}"
   drag-data="$ctrl.data"
@@ -15,8 +15,8 @@
   <span class="tooltiptext">{{ $ctrl.data.getDescription() }}</span>
 
   <div class="card-stacked">
-    <div class="card-content">
-      <div class="tree-rule-name {{ $ctrl.data.getType() }}">{{ $ctrl.data.getName() }}</div>
+    <div class="card-content {{ $ctrl.data.inputValueMaxLength  > 0 ? '' : 'color ' + $ctrl.data.getType() }}">
+      <div class="tree-rule-name color {{ $ctrl.data.getType() }}">{{ $ctrl.data.getName() }}</div>
 
       <div class="tree-rule-value {{ $ctrl.data.inputValueMaxLength  > 0 ? '' : 'hidden' }}">
         <form>
