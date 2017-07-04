@@ -77,8 +77,7 @@ function DemoRuleDao($q) {
         'goo_gle.com\n' +
         'http://\n' +
         'https://\n' +
-        'http://google*fail.com.ar\n' +
-        '\n';
+        'http://google*fail.com.ar';
 
       deferred.resolve(testerText);
     }, 500);
