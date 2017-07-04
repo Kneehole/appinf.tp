@@ -61,6 +61,8 @@ angular
           var match = matches[i];
           words.push(utils.escapeValue(match.stringMatch));
         };
+
+        words = [new RegExp(rootRule.describe(), "gm")];
       }
       
       var newAreaConfig = vm.areaConfig = {autocomplete: []}
