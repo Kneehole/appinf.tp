@@ -16,9 +16,7 @@ function DemoRuleDao($q) {
 
     setTimeout(function() {
       var rootRule = new RootRule();
-
-      var groupRule = new SequenceGroupRule();
-
+      
       var holaRule = new WordRule('Hello');
 
       var spaceRule = new AnyQuantityRule();
@@ -26,10 +24,9 @@ function DemoRuleDao($q) {
 
       var mundoRule = new WordRule('World');
 
-      groupRule.addChild(holaRule);
-      groupRule.addChild(spaceRule);
-      groupRule.addChild(mundoRule);
-      rootRule.setRule(groupRule);
+      rootRule.addChild(holaRule);
+      rootRule.addChild(spaceRule);
+      rootRule.addChild(mundoRule);
 
       deferred.resolve(rootRule);
     }, 500);

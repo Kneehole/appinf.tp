@@ -57,6 +57,10 @@ angular
             } else if (parentRule.removeChild != undefined) {
               parentRule.removeChild($dragData);
             }
+          } else if ($dragData.getType() == $dragData.types.root) {
+            while ($dragData.getChildren().length > 0) {
+              $dragData.removeChild($dragData.getChildren()[0]);
+            }
           }
           vm.ruleChanged(parentRule);
         }
