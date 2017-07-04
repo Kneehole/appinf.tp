@@ -17,16 +17,44 @@ function DemoRuleDao($q) {
     setTimeout(function() {
       var rootRule = new RootRule();
 
-      var holaRule = new WordRule('Hello');
+      var protocol = new AtLeastOneQuantityRule();
+      var protocolGroup = new SelectiveGroupRule();
+      protocolGroup.addChild(new WordRule('http://'));
+      protocolGroup.addChild(new WordRule('https://'));
+      protocol.setRule(protocolGroup);
 
-      var spaceRule = new AnyQuantityRule();
-      spaceRule.setRule(new WhiteSpaceSymbolRule());
+      var www = new AtLeastOneQuantityRule();
+      www.setRule(new WordRule('www.'));
 
-      var mundoRule = new WordRule('World');
+      var domainName = new MoreThanZeroQuantityRule();
+      var domainNameAllowedChars = new SymbolsGroupRule();
+      domainNameAllowedChars.addChild(new SimpleSymbolRule('-'));
+      domainNameAllowedChars.addChild(new SimpleSymbolRule('+'));
+      domainNameAllowedChars.addChild(new AlphabeticSymbolRule());
+      domainNameAllowedChars.addChild(new NumericSymbolRule());
+      domainName.setRule(domainNameAllowedChars);
 
-      rootRule.addChild(holaRule);
-      rootRule.addChild(spaceRule);
-      rootRule.addChild(mundoRule);
+      var domainSpaces = new SelectiveGroupRule();
+      domainSpaces.addChild(new WordRule('.com'));
+      domainSpaces.addChild(new WordRule('.gob'));
+      domainSpaces.addChild(new WordRule('.org'));
+
+      var domainCountry = new AtLeastOneQuantityRule();
+      var domainCountryGroup = new SelectiveGroupRule();
+      domainCountryGroup.addChild(new WordRule('.ar'));
+      domainCountryGroup.addChild(new WordRule('.br'));
+      domainCountry.setRule(domainCountryGroup);
+
+      var startAnchor = new StartAnchorRule();
+      var endAnchor = new EndAnchorRule();
+
+      rootRule.addChild(startAnchor);
+      rootRule.addChild(protocol);
+      rootRule.addChild(www);
+      rootRule.addChild(domainName);
+      rootRule.addChild(domainSpaces);
+      rootRule.addChild(domainCountry);
+      rootRule.addChild(endAnchor);
 
       deferred.resolve(rootRule);
     }, 500);
@@ -39,14 +67,19 @@ function DemoRuleDao($q) {
 
     setTimeout(function() {
       var testerText = '' +
-        'Hello World \n' +
-        'World Hello\n' +
-        'HelloWorld \n' +
-        'Hello      World \n' +
-        'Hello Hello World World\n' +
-        'HHello World World\n' +
-        'Hello Hello WorldWorld\n' +
-        'He llo Wo rld\n\n';
+        'google.com\n' +
+        'google.com.ar\n' +
+        'http://google.com.ar\n' +
+        'https://www.google.com\n' +
+        'www.google.com.ar\n' +
+        'www.goo-gle.com.ar\n' +
+        'www.google+dummy.com.ar\n' +
+        '\n' +
+        'goo_gle.com\n' +
+        'http://\n' +
+        'https://\n' +
+        'http://google*fail.com.ar\n' +
+        '\n';
 
       deferred.resolve(testerText);
     }, 500);

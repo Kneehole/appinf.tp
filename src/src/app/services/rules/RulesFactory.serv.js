@@ -28,7 +28,10 @@ function RulesFactory($q) {
 
         new AtLeastOneQuantityRule(),
         new MoreThanZeroQuantityRule(),
-        new AnyQuantityRule()
+        new AnyQuantityRule(),
+
+        new StartAnchorRule(),
+        new EndAnchorRule()
       ];
 
       deferred.resolve(rules);

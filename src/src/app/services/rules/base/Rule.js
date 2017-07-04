@@ -16,7 +16,8 @@ function Rule() {
     leaf: 'leaf',
     root: 'root',
     group: 'group',
-    decorator: 'decorator'
+    decorator: 'decorator',
+    other: 'other'
   }
 
   /**

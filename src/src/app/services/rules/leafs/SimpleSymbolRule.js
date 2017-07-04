@@ -2,9 +2,9 @@ angular
   .module('app')
   .service('SimpleSymbolRule', SimpleSymbolRule);
 
-function SimpleSymbolRule() {
+function SimpleSymbolRule(value) {
   SymbolRule.call(this);
-  this.value = 'a';
+  this.value = value || 'a';
   this.inputValueMaxLength = 1;
 
   /**

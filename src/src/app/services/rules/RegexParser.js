@@ -11,7 +11,7 @@ function RegexParser() {
     var pattern = rule.describe();
     if (pattern.length == 0) return [];
     
-    var regex = new RegExp(pattern, "g");
+    var regex = new RegExp(pattern, "gm");
     var matches = [];
     var processData = {
       origin: text,
