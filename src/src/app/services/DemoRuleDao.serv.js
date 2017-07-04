@@ -16,7 +16,7 @@ function DemoRuleDao($q) {
 
     setTimeout(function() {
       var rootRule = new RootRule();
-      
+
       var holaRule = new WordRule('Hello');
 
       var spaceRule = new AnyQuantityRule();
@@ -46,7 +46,7 @@ function DemoRuleDao($q) {
         'Hello Hello World World\n' +
         'HHello World World\n' +
         'Hello Hello WorldWorld\n' +
-        'He llo Wo rld\n';
+        'He llo Wo rld\n\n';
 
       deferred.resolve(testerText);
     }, 500);

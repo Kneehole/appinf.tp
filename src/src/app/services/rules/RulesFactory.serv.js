@@ -22,6 +22,8 @@ function RulesFactory($q) {
         new WordRule(),
 
         new SymbolsGroupRule(),
+        new InvertedSymbolsGroupRule(),
+        new SelectiveGroupRule(),
         new SequenceGroupRule(),
 
         new AtLeastOneQuantityRule(),

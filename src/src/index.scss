@@ -126,8 +126,13 @@ rules-tree .container {
 }
 
 rules-tree .card.horizontal {
+  background-color: transparent;
+}
+
+rules-tree .card.horizontal .card-stacked {
   border-radius: 5px; 
   overflow: hidden;
+  background-color: white;
 }
 
 /*********************************************************
@@ -216,7 +221,7 @@ sa-wrapper {
 
 .rule-node {
   width: 100px;
-  height: 70px;
+  height: 50px;
 }
 
 .rule-node .card.horizontal {
@@ -227,7 +232,7 @@ sa-wrapper {
 
 .card .card-content {
   padding: 0px;
-  min-height: 70px;
+  min-height: 50px;
 }
 
 .tree-rule-name {
@@ -244,7 +249,7 @@ sa-wrapper {
 }
 
 .tree-rule-value {
-  padding: 5px 3px 5px 3px;
+  padding: 3px 3px 0px 3px;
   font-size: 11px;
   line-height: 12px;
 }
@@ -253,7 +258,7 @@ sa-wrapper {
   @extend .rounded-box;
   font-size: 11px;
   text-align: center;
-  width: 55px;
+  width: 58px;
   height: 16px;
 
   border-radius: 3px;
@@ -304,6 +309,45 @@ sa-wrapper {
     width: 15px;
     height: 15px;
   }
+}
+
+/*********************************************************
+ * Tooltips
+*********************************************************/
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    transition: opacity .6s;
+    visibility: hidden;
+    width: 120px;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    padding: 5px 0;
+
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
 
 
