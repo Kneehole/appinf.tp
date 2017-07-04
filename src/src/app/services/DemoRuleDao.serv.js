@@ -29,7 +29,6 @@ function DemoRuleDao($q) {
       var domainName = new MoreThanZeroQuantityRule();
       var domainNameAllowedChars = new SymbolsGroupRule();
       domainNameAllowedChars.addChild(new SimpleSymbolRule('-'));
-      domainNameAllowedChars.addChild(new SimpleSymbolRule('+'));
       domainNameAllowedChars.addChild(new AlphabeticSymbolRule());
       domainNameAllowedChars.addChild(new NumericSymbolRule());
       domainName.setRule(domainNameAllowedChars);
@@ -73,8 +72,8 @@ function DemoRuleDao($q) {
         'https://www.google.com\n' +
         'www.google.com.ar\n' +
         'www.goo-gle.com.ar\n' +
-        'www.google+dummy.com.ar\n' +
         '\n' +
+        'www.google+dummy.com.ar\n' +
         'goo_gle.com\n' +
         'http://\n' +
         'https://\n' +

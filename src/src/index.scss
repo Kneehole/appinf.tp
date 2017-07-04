@@ -56,11 +56,11 @@ body {
 }
 
 .home-tree-container rules-tree {
-  height: 60%;
+  height: 50vh;
 }
 
 .home-tree-container rule-tester {
-  height: 40%;
+  height: 40vh;
   padding-top: 10px;
 }
 
@@ -146,7 +146,7 @@ rules-tree .card.horizontal .card-stacked {
   min-height: 50px;
   background-color: white;
   margin: 0 10px 0 10px;
-  font-size: 25px;
+  font-size: 20px;
   font-family: monospace;
   padding: 3px 10px 0 10px;
 }
@@ -157,11 +157,13 @@ rules-tree .card.horizontal .card-stacked {
   height: 80%;
   margin: 10px;
 
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .tester-area textarea {
   width: 100%;
-  height: 100%;
+  height: 1000px;
   padding: 10px;
   border-color: transparent; 
   font-size: 15px;

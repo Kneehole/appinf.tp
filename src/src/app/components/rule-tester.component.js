@@ -37,7 +37,7 @@ angular
 
       regex = regex.replace(/\*/g, '<multiplier>*</multiplier>');
       regex = regex.replace(/\?/g, '<multiplier>?</multiplier>');
-      regex = regex.replace(/\+/g, '<multiplier>+</multiplier>');
+      regex = regex.replace(/([^\\])\+/g, '$1<multiplier>+</multiplier>');
       
       return regex;
     }

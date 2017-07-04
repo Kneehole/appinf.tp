@@ -78,7 +78,15 @@ angular
     *********************************************************/
 
     vm.checkDragData = function ($dragData) {
-      return $dragData && !$dragData.isFromTree && vm.data.isExtensible($dragData);
+      if ($dragData) {
+        if ($dragData.isFromTree) {
+          return vm.isSibling($dragData);
+        } else {
+          return vm.data.isExtensible($dragData);
+        }
+      }
+
+      return false;
     }
 
     vm.onDragStartEnter = function ($event, $dragData) {
@@ -94,7 +102,28 @@ angular
     }
 
     vm.onDrop = function ($event, $dragData) {
-      var childRule = new ($dragData.constructor)();
-      vm.addChildIfPossible(childRule);
+      if ($dragData.isFromTree) {
+        if (vm.isSibling($dragData)) {
+          vm.switchSibling($dragData);
+        }
+      } else {
+        var childRule = new ($dragData.constructor)();
+        vm.addChildIfPossible(childRule);
+      }
+    }
+
+    vm.isSibling = function (rule) {
+      var parent1 = rule.getParent();
+      var parent2 = vm.data.getParent();
+      return parent1 && parent2 && rule.id != vm.data.id && parent1.id == parent2.id;
+    }
+
+    vm.switchSibling = function (rule) {
+      var parent = vm.data.getParent();
+      var children = parent.getChildren();
+      var fromIndex = children.indexOf(rule);
+      var toIndex = children.indexOf(vm.data);
+      children.splice(toIndex, 0, children.splice(fromIndex, 1)[0]);
+      vm.onUpdate(vm.data);
     }
   }
