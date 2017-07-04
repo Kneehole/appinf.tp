@@ -20,7 +20,7 @@ function RegexParser() {
     }
     while (true) {
       var nextRegexMatch = regex.exec(text);
-      if (!nextRegexMatch) break;
+      if (!nextRegexMatch || nextRegexMatch[0].length == 0) break;
 
       var match = parseMatchInfo(nextRegexMatch, processData);
       matches.push(match);
